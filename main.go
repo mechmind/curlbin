@@ -37,7 +37,8 @@ func main() {
 	}
 
 	storage := NewStorage(*dataDir)
-	server := NewServer(storage, *name, *listenAddr)
+	renderer := NewRenderer()
+	server := NewServer(storage, renderer, *name, *listenAddr)
 
 	err := http.ListenAndServe(*listenAddr, server)
 	if err != nil {

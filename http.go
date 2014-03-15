@@ -9,11 +9,12 @@ import (
 
 type Server struct {
 	storage    *Storage
+	renderer   *Renderer
 	name, addr string
 }
 
-func NewServer(storage *Storage, name, addr string) *Server {
-	return &Server{storage, name, addr}
+func NewServer(storage *Storage, renderer *Renderer, name, addr string) *Server {
+	return &Server{storage, renderer, name, addr}
 }
 
 // Root handler of bin. Validates and routes requests
@@ -56,7 +57,8 @@ func (s *Server) HandleGetPaste(w http.ResponseWriter, r *http.Request) {
 	}
 	defer file.Close()
 
-	_, err = io.Copy(w, file)
+	err = s.renderer.RenderTo(w, file)
+	//_, err = io.Copy(w, file)
 	if err != nil {
 		log.Print("http: failed to deliver paste: ", err)
 	}
