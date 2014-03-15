@@ -10,6 +10,7 @@ coloring the code or adding line numbers (see options below).
 ## Installation
 
 `go get github.com/mechmind/curlbin`
+For now, requires [pygmentize](http://pygments.org/docs/cmdline/) to work.
 
 ## Running
 
