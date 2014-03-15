@@ -7,7 +7,6 @@ import (
 	"os"
 )
 
-
 var dataDir = flag.String("datadir", "/var/lib/curlbin", "Directory when data reside")
 var logFilePath = flag.String("logfile", "/var/log/curlbin.log", "Log file to use")
 var listenAddr = flag.String("listen", ":8080", "Address to listen on")

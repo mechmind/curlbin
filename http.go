@@ -7,9 +7,8 @@ import (
 	"net/url"
 )
 
-
 type Server struct {
-	storage *Storage
+	storage    *Storage
 	name, addr string
 }
 
@@ -39,11 +38,9 @@ func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-
 func (s *Server) HandleMainPage(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("hello\n"))
 }
-
 
 func (s *Server) HandleGetPaste(w http.ResponseWriter, r *http.Request) {
 	id := r.URL.Path[1:]

@@ -4,7 +4,6 @@ import (
 	"strings"
 )
 
-
 const (
 	AGENT_CURL = iota
 	AGENT_BROWSER

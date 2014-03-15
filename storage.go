@@ -8,15 +8,12 @@ import (
 	"time"
 )
 
-
 const CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 const ID_LENGTH = 6
-
 
 func init() {
 	rand.Seed(time.Now().UnixNano())
 }
-
 
 type Storage struct {
 	root string
@@ -63,5 +60,5 @@ func (s *Storage) Open(id string) (io.ReadCloser, error) {
 }
 
 func (s *Storage) GetPath(id string) string {
-	return filepath.Join(s.root, id[:2] + "/" + id[2:])
+	return filepath.Join(s.root, id[:2]+"/"+id[2:])
 }
